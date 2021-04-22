@@ -12,7 +12,7 @@ async def create_server(motd,ad):
     UDP_PORT = 4445
 
     while True:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(bytes(MESSAGE, "utf-8"), (UDP_IP, UDP_PORT))
         print(motd)
         await asyncio.sleep(1.5)
