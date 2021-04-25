@@ -5,8 +5,21 @@ import socket
 import struct
 import time
 import threading
+from kaling import Kakao
 from datetime import datetime
 import json
+
+# Get my personal information
+with open('info.json') as json_file:
+    data = json.load(json_file)
+
+
+global ROOM
+ROOM = "예상우"
+
+
+# KakaoLink = Kakao(data["jskey"],'http://students.ksa.hs.kr')
+# KakaoLink.login(data["mail"],data["pwd"])
 
 current_server = {}
 
@@ -42,9 +55,49 @@ def check_server():
 
 def server_end(ad,server):
     print(f"server {server[0]} on {ad} has been shut down")
+    # KakaoLink.send(ROOM,{
+    #         "link_ver": "4.0",
+    #         "template_object": {
+    #             "object_type": "feed",
+    #             "button_title": "",
+                
+    #             "content": {
+    #                 "title": f"서버 {server[0]} 가 {ad}에서 닫혔습니다",
+    #                 "image_url": "",
+    #                 "image_height" : 150,
+    #                 "image_width" : 600,
+    #                 "link": {
+    #                     "web_url": "",
+    #                     "mobile_web_url": ""
+    #                 },
+    #                 "description": f"closed at : {server[1]}"
+    #             },
+    #         }
+    #     })
+
+
 
 def server_start(ad,server):
     print(f"server {server[0]} has been opened on {ad}")
+    # KakaoLink.send(ROOM,{
+    #         "link_ver": "4.0",
+    #         "template_object": {
+    #             "object_type": "feed",
+    #             "button_title": "",
+                
+    #             "content": {
+    #                 "title": f"서버 {server[0]} 가 {ad}에서 열렸습니다!",
+    #                 "image_url": "",
+    #                 "image_height" : 150,
+    #                 "image_width" : 600,
+    #                 "link": {
+    #                     "web_url": "",
+    #                     "mobile_web_url": ""
+    #                 },
+    #                 "description": f"opened at : {server[1]}"
+    #             },
+    #         }
+    #     })
 
 def tag_server():
     global current_server
