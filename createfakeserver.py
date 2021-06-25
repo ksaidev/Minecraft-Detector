@@ -19,6 +19,8 @@ async def create_server(motd,ad):
 
 # Create tasks
 async def main():
+    #You can create multiple virtual servers at once!
+    #create by entering motd and any port number you like!
     task1 = asyncio.create_task(create_server("test1",1))
     task2 = asyncio.create_task(create_server("test2",2))
     await task1

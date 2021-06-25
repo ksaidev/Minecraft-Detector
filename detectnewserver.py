@@ -1,5 +1,7 @@
 # Program that detects open server on lan in real time
 # Made by 0ev
+# Run to detect any new servers that are opened.
+# This code can be run indefinately
 
 import socket 
 import struct
